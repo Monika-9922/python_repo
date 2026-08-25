@@ -1,0 +1,18 @@
+2026-08-25 12:05:31,050 - INFO - ===== Application started =====
+2026-08-25 12:05:31,050 - INFO - Student processing started.
+2026-08-25 12:05:44,437 - INFO - Student name received: monika
+2026-08-25 12:05:46,677 - INFO - Number of subjects received: 0
+2026-08-25 12:05:46,677 - ERROR - Student entered zero or negative subjects.
+2026-08-25 12:05:46,677 - CRITICAL - Student processing could not be completed: Number of subjects cannot be zero.
+2026-08-25 12:05:46,678 - INFO - Student processing finished (finally block executed).
+
+2026-08-25 12:05:50,199 - INFO - Student processing started.
+2026-08-25 12:05:52,357 - INFO - Student name received: monika
+2026-08-25 12:05:54,770 - INFO - Number of subjects received: 3
+2026-08-25 12:06:02,471 - WARNING - Out-of-range mark entered: 150.0
+2026-08-25 12:06:06,781 - INFO - Marks entered successfully.
+2026-08-25 12:06:06,782 - INFO - Calculation completed.
+2026-08-25 12:06:06,783 - INFO - Student statistics calculated successfully.
+2026-08-25 12:06:06,784 - INFO - Student processing finished (finally block executed).
+
+2026-08-25 12:08:12,255 - INFO - ===== Application completed =====
