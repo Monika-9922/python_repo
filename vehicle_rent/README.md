@@ -3,6 +3,13 @@
 <img width="1364" height="1750" alt="image" src="https://github.com/user-attachments/assets/be735036-17dd-4833-b1f1-91d15e82d97b" />
 
 
+## Outputs:
+<img width="940" height="489" alt="image" src="https://github.com/user-attachments/assets/90f064ba-baab-4b5d-9871-4d670733f04f" />
+<img width="940" height="605" alt="image" src="https://github.com/user-attachments/assets/b9b5e2c7-1086-4934-85c6-4ac3428a0c0b" />
+<img width="940" height="508" alt="image" src="https://github.com/user-attachments/assets/fb5d23ca-3390-4059-970b-f74fdd6c219f" />
+<img width="940" height="284" alt="image" src="https://github.com/user-attachments/assets/62cbd923-295b-4aff-a642-24e376271d0b" />
+<img width="940" height="612" alt="image" src="https://github.com/user-attachments/assets/1cf4f9ce-a4fe-449a-868e-596e0c5790b2" />
+
 ## Notes on relationships
 
 - **Vehicle is abstract**; `Car`, `Bike`, and `Van` inherit from it and
@@ -162,3 +169,8 @@ purely through their abstract interfaces (`Vehicle.calculate_rental_cost`,
 2. The pricing and payment logic can't drift out of sync across
    scattered conditionals, because each rule lives in exactly one
    place: the subclass that owns it.
+
+
+
+
+
