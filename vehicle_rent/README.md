@@ -1,3 +1,157 @@
+# Vehicle Rental Management System
+
+## Class Diagram
+
+The following class diagram represents the object-oriented design of the
+Vehicle Rental Management System.
+
+```mermaid
+classDiagram
+
+    %% =========================
+    %% VEHICLE HIERARCHY
+    %% =========================
+
+    class Vehicle {
+        <<abstract>>
+        -vehicleId
+        -registrationNumber
+        -brand
+        -model
+        -dailyRate
+        -available
+        +calculateRentalCost(days)
+        +displayDetails()
+        +markAsRented()
+        +markAsAvailable()
+    }
+
+    class Car {
+        +calculateRentalCost(days)
+    }
+
+    class Bike {
+        +calculateRentalCost(days)
+    }
+
+    class Van {
+        -serviceCharge
+        +calculateRentalCost(days)
+    }
+
+    Vehicle <|-- Car
+    Vehicle <|-- Bike
+    Vehicle <|-- Van
+
+
+    %% =========================
+    %% CUSTOMER
+    %% =========================
+
+    class Customer {
+        -customerId
+        -name
+        -email
+        -licenceNumber
+        -rentalHistory
+        +addRental(rental)
+        +displayRentalHistory()
+    }
+
+
+    %% =========================
+    %% RENTAL
+    %% =========================
+
+    class Rental {
+        -rentalId
+        -customer
+        -vehicle
+        -rentalDate
+        -returnDate
+        -days
+        -totalAmount
+        -status
+        +calculateFinalAmount()
+        +completeRental()
+    }
+
+
+    %% =========================
+    %% INVOICE
+    %% =========================
+
+    class Invoice {
+        -rental
+        -baseAmount
+        -lateFee
+        -finalAmount
+        +generate()
+        +display()
+    }
+
+
+    %% =========================
+    %% PAYMENT
+    %% =========================
+
+    class PaymentProcessor {
+        <<interface>>
+        +processPayment(amount)
+    }
+
+    class CardPayment {
+        -maskedCard
+        +processPayment(amount)
+    }
+
+    class UpiPayment {
+        -upiId
+        +processPayment(amount)
+    }
+
+    PaymentProcessor <|.. CardPayment
+    PaymentProcessor <|.. UpiPayment
+
+
+    %% =========================
+    %% RENTAL SERVICE
+    %% =========================
+
+    class RentalService {
+        -vehicles
+        -customers
+        -rentals
+        +addVehicle(vehicle)
+        +registerCustomer(customer)
+        +listAvailableVehicles()
+        +searchById(id)
+        +searchByType(type)
+        +searchByPriceRange(min,max)
+        +rentVehicle(...)
+        +returnVehicle(...)
+    }
+
+
+    %% =========================
+    %% RELATIONSHIPS
+    %% =========================
+
+    Customer "1" --> "0..*" Rental : rental history
+
+    Rental "1" *-- "1" Customer : contains
+    Rental "1" *-- "1" Vehicle : contains
+
+    Rental "1" --> "1" Invoice : generates
+
+    Rental ..> PaymentProcessor : uses
+
+    RentalService --> Vehicle : manages
+    RentalService --> Customer : manages
+    RentalService --> Rental : manages
+
+
+
 # Class Diagram — Vehicle Rental Management System
 
 ```
@@ -51,8 +205,6 @@
                                              +-----+-------------------+            
                                   +--------------------+    +--------------------+
                                   |    CardPayment     |    |     UpiPayment     |
-                                  +--------------------+    +--------------------+
-                                  | - maskedCard       |    | - upiId            |
                                   +--------------------+    +--------------------+
                                   | + processPayment() |    | + processPayment() |
                                   +--------------------+    +--------------------+
