@@ -1,3 +1,4 @@
+
 # Assignment Answers: Exception Handling and Logging
 
 1. What is exception handling?
